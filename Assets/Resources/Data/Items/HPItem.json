@@ -1,0 +1,11 @@
+{
+    "data": [{
+        "assemblyName": "Assembly-CSharp",
+        "type": "EffectHPController",
+        "typeInfo": "EffectHPInfo",
+        "data": {
+            "hp": 20
+        }
+    }
+]
+}

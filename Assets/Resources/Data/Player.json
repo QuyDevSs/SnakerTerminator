@@ -1,0 +1,40 @@
+{
+    "data":[
+        {
+            "damage": 20,
+            "hp" : 100,
+            "asdp": 1
+        },
+        {
+            "damage": 30,
+            "hp" : 150,
+            "asdp": 1
+        },
+        {
+            "damage": 40,
+            "hp" : 200,
+            "asdp": 1
+        },
+        {
+            "damage": 50,
+            "hp" : 250,
+            "asdp": 1
+        },
+        {
+            "damage": 60,
+            "hp" : 300,
+            "asdp": 1
+        },
+        {
+            "damage": 70,
+            "hp" : 350,
+            "asdp": 1
+        },
+        {
+            "damage": 80,
+            "hp" : 400,
+            "asdp": 1
+        }
+        
+    ]
+}
