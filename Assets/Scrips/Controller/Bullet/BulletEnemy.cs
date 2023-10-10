@@ -7,7 +7,21 @@ public class BulletEnemy : BulletController
     protected override void OnEnable()
     {
         base.OnEnable();
-        bulletTypes = BulletTypes.Normal;
+        lifeTime = 3f;
+        bulletTypes = BulletTypes.Enemy;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        int playerLayerMask = LayerMask.NameToLayer("Player");
+        if (collision.gameObject.layer == playerLayerMask)
+        {
+            IHit iHit = collision.transform.GetComponentInParent<IHit>();
+            if (iHit != null)
+            {
+                iHit.OnHit(Damage, this);
+                EndBullet();
+            }
+        }
     }
     void Update()
     {
@@ -15,21 +29,11 @@ public class BulletEnemy : BulletController
         {
             return;
         }
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        float distance = spriteRenderer.bounds.size.y;
-        LayerMask playerLayerMask = LayerMask.GetMask("Player");
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, distance, playerLayerMask);
-
-        if (hit.transform != null)
+        if (lifeTime <= 0)
         {
-            IHit iHit = hit.transform.GetComponentInParent<IHit>();
-            if (iHit != null)
-            {
-                iHit.OnHit(Damage, this);
-                this.EndBullet();
-                return;
-            }
+            EndBullet();
         }
+        lifeTime -= Time.deltaTime;
         Move(transform.up);
     }
 }

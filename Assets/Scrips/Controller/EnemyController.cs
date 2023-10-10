@@ -34,7 +34,7 @@ public class EnemyController : EntityController
     protected override void OnDie()
     {
         float random = Random.Range(0f, 1f);
-        if (random <= 0.1f)
+        if (random <= 0.2f)
         {
             Create.Instance.CreateItemSkills(transform.position);
         }

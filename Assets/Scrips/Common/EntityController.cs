@@ -31,8 +31,8 @@ public abstract class EntityController : MoveController, IHit
     {
         levelController.onLevelUp = OnLevelUp;
         hpController.onDie = OnDie;
-        speed = maxSpeed;
         Observer.Instance.AddObserver(TOPICNAME.PAUSE, PauseHandle);
+        speed = maxSpeed;
     }
     private void OnDestroy()
     {

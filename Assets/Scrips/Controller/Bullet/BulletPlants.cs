@@ -8,6 +8,7 @@ public class BulletPlants : BulletController
     BouncingObject bouncingObject;
     protected override void OnEnable()
     {
+        lifeTime = 5f;
         bulletTypes = BulletTypes.Plants;
         base.OnEnable();
         bouncingScreen = GetComponent<BouncingScreen>();
@@ -36,6 +37,11 @@ public class BulletPlants : BulletController
         {
             return;
         }
+        if (lifeTime <= 0)
+        {
+            EndBullet();
+        }
+        lifeTime -= Time.deltaTime;
         Move(transform.up);
     }
     public override void SetUp()

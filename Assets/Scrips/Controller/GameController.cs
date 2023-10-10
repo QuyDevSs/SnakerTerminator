@@ -46,7 +46,8 @@ public class GameController : MonoBehaviour
     {
         gameState = GameStates.Playing;
         Observer.Instance.AddObserver(TOPICNAME.ENEMY_DIE, OnEnemyDie);
-        score = 0; 
+        score = 0;
+        //Sound.Instance.PlayMusic("BackgroundMusic");
     }
     private void OnDestroy()
     {

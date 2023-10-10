@@ -58,6 +58,7 @@ public class PartController : MonoBehaviour
         }
         Animator animator = transform.Find("Gun").GetComponent<Animator>();
         animator.Play("Shoot");
+        
     }
     public virtual void Upgrade(int nextLevel)
     {

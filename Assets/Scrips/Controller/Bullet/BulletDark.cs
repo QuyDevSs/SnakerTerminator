@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class BulletDark : BulletController
 {
-    //float angle;
-    //public float radius;
     //chuyển speed thành tốc độ đánh(tốc độ quay)
     protected override void OnEnable()
     {
-        lifeTime = (2 * Mathf.PI) / speed;
+        base.OnEnable();
+        //lifeTime = (2 * Mathf.PI) / speed;
         bulletTypes = BulletTypes.Dark;
         lifeTime = 360f;
         Level = 0;
@@ -34,6 +33,7 @@ public class BulletDark : BulletController
         {
             return;
         }
+
         transform.position = target.transform.position;
         float angle = speed * 360f * Time.deltaTime;
         transform.Rotate(Vector3.forward, angle);

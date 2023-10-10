@@ -34,6 +34,7 @@ public enum BulletTypes
     Ice,
     Plants, //Di chuyển về phía trước, xuyên qua mục tiêu, trúng vật cản hoặc màn hình sẽ nảy lại
     Dark, //tạo 3 kiếm ánh sáng xoay quanh bản thân
-    Circle
+    Circle,
+    Enemy
 }
 // nổ , làm chậm, đẩy lùi, thiêu đốt, choáng, triệu hồi, hủy đạn đạo

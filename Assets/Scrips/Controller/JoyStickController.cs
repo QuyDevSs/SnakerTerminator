@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-//using LTA.UI.Effect;
 using System;
 public class JoyStickController : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -18,11 +17,6 @@ public class JoyStickController : MonoBehaviour, IDragHandler, IBeginDragHandler
     Transform BgJoyStick;
 
     Vector3 OriginalPos;
-
-    //EffectController effectJoyStick;
-
-    //EffectController effectBgJoyStick;
-
     Action<Vector3> endDrag;
 
     public Action<Vector3> EndDrag
@@ -66,20 +60,12 @@ public class JoyStickController : MonoBehaviour, IDragHandler, IBeginDragHandler
         Vector3 canvasScale = canvas.transform.localScale;
         float size = BgJoyStick.GetComponent<RectTransform>().rect.width / 2;
         maxLength = size * canvasScale.x;
-
-        //Debug.Log(maxLength);
-        //effectBgJoyStick = BgJoyStick.GetComponent<EffectController>();
-        //effectJoyStick = JoyStick.GetComponent<EffectController>();
     }
 
-    public virtual void OnBeginDrag(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
         BgJoyStick.position = eventData.position;
         direction = Vector3.zero;
-        //if (effectBgJoyStick != null)
-        //    effectBgJoyStick.ShowEffect();
-        //if (effectJoyStick != null)
-        //    effectJoyStick.ShowEffect();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -87,7 +73,7 @@ public class JoyStickController : MonoBehaviour, IDragHandler, IBeginDragHandler
         MoveJoyStick(eventData.position);
     }
 
-    public virtual void OnEndDrag(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData)
     {
         if (endDrag != null)
             endDrag(direction);
@@ -95,11 +81,6 @@ public class JoyStickController : MonoBehaviour, IDragHandler, IBeginDragHandler
         JoyStick.transform.localPosition = Vector3.zero;
         BgJoyStick.position = OriginalPos;
         posJoyStick = JoyStick.localPosition;
-        //if (effectBgJoyStick != null)
-        //    effectBgJoyStick.HideEffect();
-        //if (effectJoyStick != null)
-        //    effectJoyStick.HideEffect();
-
     }
 
     void MoveJoyStick(Vector3 touchPos)

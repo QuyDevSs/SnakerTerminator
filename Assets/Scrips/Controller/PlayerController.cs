@@ -89,7 +89,7 @@ public class PlayerController : EntityController
         //float horizontal = Input.GetAxis("Horizontal");
         //float vertical = Input.GetAxis("Vertical");
         //Vector3 direction = new Vector3(horizontal, vertical);
-        //Move(direction);
+
         if (joyStick.Direction != Vector3.zero)
         {
             speed = maxSpeed;
@@ -166,7 +166,8 @@ public class PlayerController : EntityController
         if (curPoint.deltaDistance != 0)
         {
             snakePoints.Add(curPoint);
-        }    }
+        }    
+    }
     void UpdateBodies()
     {
         if (BodyParts.Count <= 1)

@@ -16,6 +16,11 @@ public class BulletCircle : BulletController
         {
             return;
         }
+        if (lifeTime <= 0)
+        {
+            EndBullet();
+        }
+        lifeTime -= Time.deltaTime;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,12 +34,7 @@ public class BulletCircle : BulletController
             }
         }
     }
-    
     public override void SetUp()
     {
-        if (Level == 3)
-        {
-            Damage *= 1.5f;
-        }
     }
 }

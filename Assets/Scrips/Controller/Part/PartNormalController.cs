@@ -31,6 +31,7 @@ public class PartNormalController : PartController
                 return;
             }
             base.Shoot();
+            Sound.Instance.PlaySound("laser_shot");
             RotateGun(target.transform.position - transform.position);
             BulletController bullet = Create.Instance.CreateBulletNormal(tranShoot);
             bullet.Damage = Damage * Constants.NORMAL_BODY_DAMAGE_MULTIPLIER;

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6925249955577215190}
   - component: {fileID: 6925249955577215189}
   - component: {fileID: 6925249955577215188}
-  - component: {fileID: 6925249955577215195}
   - component: {fileID: 6925249955577215191}
   - component: {fileID: -723236289420970839}
   m_Layer: 0
@@ -86,22 +85,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6925249955577215194}
   m_Mesh: {fileID: 0}
---- !u!114 &6925249955577215195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6925249955577215194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9890f8e3c500a1d4eb08cd4b219e9f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  target: {fileID: 0}
-  lifeTime: 3
-  bulletTypes: 0
 --- !u!60 &6925249955577215191
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -308,13 +308,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82ed0536f52f70408a81aafa6492129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 5
-  maxDistance: 10
+  minDistance: 3
+  maxDistance: 6
   completeHandle: 0
   waves:
   - enemyTypes:
     - enemyType: 0
-      firstSpawnTime: 1
+      firstSpawnTime: 0
       spawnInterval: 1
       maxEnemies: 3
       level: 1
@@ -322,7 +322,7 @@ MonoBehaviour:
       lastSpawnedTime: 0
       hasSpawned: 0
     - enemyType: 0
-      firstSpawnTime: 4
+      firstSpawnTime: 6
       spawnInterval: 1
       maxEnemies: 4
       level: 1
@@ -331,7 +331,7 @@ MonoBehaviour:
       hasSpawned: 0
   - enemyTypes:
     - enemyType: 0
-      firstSpawnTime: 4
+      firstSpawnTime: 1
       spawnInterval: 1
       maxEnemies: 2
       level: 1

@@ -10,7 +10,7 @@ public class SoundController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         audioSource = GetComponent<AudioSource>();
         AudioClip[] audioClips = Resources.LoadAll<AudioClip>("Sounds");
         foreach (AudioClip audioClip in audioClips)
@@ -32,10 +32,8 @@ public class SoundController : MonoBehaviour
     {
         if (!dic_Name_AudioClip.ContainsKey(soundName))
         {
-            Debug.Log("return");
             return; 
         }
-        Debug.Log("play");
         audioSource.clip = dic_Name_AudioClip[soundName];
         audioSource.Play();
     }

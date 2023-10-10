@@ -74,7 +74,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Time: 0.05
+  m_Time: 0.02
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.11
@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 3670070897390864722}
   - component: {fileID: -2715089084468361198}
   - component: {fileID: -8070173297811620578}
+  - component: {fileID: 4779161924507198941}
   m_Layer: 0
   m_Name: BulletNormalPrefab
   m_TagString: Untagged
@@ -158,7 +159,7 @@ Transform:
   m_GameObject: {fileID: 1734562837015435535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2067265357703336793}
@@ -206,7 +207,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9dddd4fcd3842c847b14acd9677203ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b729d914c7de7424bb05e2cc9341b3a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -229,7 +230,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ae4b8fd2364694d991f26abecc6272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 35
+  speed: 30
   target: {fileID: 0}
   lifeTime: 3
   bulletTypes: 0
+--- !u!70 &4779161924507198941
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734562837015435535}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0009306595, y: 0.08977645}
+  m_Size: {x: 0.08094889, y: 0.1795529}
+  m_Direction: 0

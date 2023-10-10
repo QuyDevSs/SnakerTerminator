@@ -9,39 +9,26 @@ public interface IHit
 {
     void OnHit(float damage, BulletController bullet);
 }
-public class Effect
-{
-    public Type type;
-    public string level;
-}
+//public class Effect
+//{
+//    public Type type;
+//    public string level;
+//}
 public class BulletController : MoveController
 {
     public GameObject target;
-    public float lifeTime = 3;
+    public float lifeTime;
     public BulletTypes bulletTypes;
     protected bool isPause;
     public int Level { get; set; }
     public float Damage { get; set; }
-    protected void Start()
+    protected virtual void OnEnable()
     {
         Observer.Instance.AddObserver(TOPICNAME.PAUSE, PauseHandle);
     }
-    protected void OnDestroy()
+    protected void OnDisable()
     {
         Observer.Instance.RemoveObserver(TOPICNAME.PAUSE, PauseHandle);
-    }
-    protected virtual void OnEnable()
-    {
-        StartCoroutine(DelayEndBullet(lifeTime));
-    }
-    private void Update()
-    {
-    }
-    
-    protected IEnumerator DelayEndBullet(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        EndBullet();
     }
     protected void EndBullet()
     {

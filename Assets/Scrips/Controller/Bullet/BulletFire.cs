@@ -17,25 +17,7 @@ public class BulletFire : BulletController
         filterTarget = GetComponent<FilterTargetController>();
         Level = 0;
         numberBounces = 2;
-        //base.OnEnable();
-
-        //Assembly assembly = Assembly.Load("Assembly-CSharp");
-        //SubEffectInfo effectInfo = new SubEffectInfo();
-
-        //effectInfo.type = assembly.GetType("EffectHPController");
-        //EffectHPInfo effectHPInfo = new EffectHPInfo();
-        //effectHPInfo.hp = 20;
-        //effectInfo.data = effectHPInfo;
-
-        //effectInfo.type = assembly.GetType("DotController");
-        //DotInfo dotInfo = new DotInfo();
-        //dotInfo.hp = 20;
-        //dotInfo.time = 4f;
-        //dotInfo.unitTime = 1f;
-        //effectInfo.data = dotInfo;
-        //List<SubEffectInfo> listsubEffectInfo = new List<SubEffectInfo>();
-        //listsubEffectInfo.Add(effectInfo);
-        //effectInfos = listsubEffectInfo.ToArray();
+       base.OnEnable();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
