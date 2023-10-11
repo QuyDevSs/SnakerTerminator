@@ -51,6 +51,7 @@ public class PartPlantsController : PartController
         BulletController bullet = Create.Instance.CreateBulletPlants(tranShoot.position + offset, tranShoot.rotation);
         bullet.Damage = Damage * DamageMultiplier;
         bullet.Level = Level;
+        bullet.parent = gameObject;
         bullet.SetUp();
     }
     public override void Upgrade(int nextLevel)

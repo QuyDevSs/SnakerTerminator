@@ -45,6 +45,7 @@ public class PartLightController : PartController
             bullet.target = target;
             bullet.partLight = this;
             bullet.Level = Level;
+            bullet.parent = gameObject;
             bullet.SetUp();
         }
     }

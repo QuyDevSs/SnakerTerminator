@@ -9361,7 +9361,7 @@ MonoBehaviour:
   waves:
   - enemyTypes:
     - enemyType: 0
-      firstSpawnTime: 3
+      firstSpawnTime: 2
       spawnInterval: 1
       maxEnemies: 3
       level: 1
@@ -9369,7 +9369,7 @@ MonoBehaviour:
       lastSpawnedTime: 0
       hasSpawned: 0
     - enemyType: 0
-      firstSpawnTime: 5
+      firstSpawnTime: 3
       spawnInterval: 1
       maxEnemies: 4
       level: 1

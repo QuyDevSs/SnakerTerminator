@@ -322,7 +322,7 @@ MonoBehaviour:
       lastSpawnedTime: 0
       hasSpawned: 0
     - enemyType: 0
-      firstSpawnTime: 6
+      firstSpawnTime: 4
       spawnInterval: 1
       maxEnemies: 4
       level: 1

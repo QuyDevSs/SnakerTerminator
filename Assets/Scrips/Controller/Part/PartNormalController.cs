@@ -35,6 +35,7 @@ public class PartNormalController : PartController
             RotateGun(target.transform.position - transform.position);
             BulletController bullet = Create.Instance.CreateBulletNormal(tranShoot);
             bullet.Damage = Damage * Constants.NORMAL_BODY_DAMAGE_MULTIPLIER;
+            bullet.parent = gameObject;
             lastShootTime = Time.time + 1 / Asdp;
         }
     }

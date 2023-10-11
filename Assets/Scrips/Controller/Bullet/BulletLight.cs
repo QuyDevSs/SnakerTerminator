@@ -12,6 +12,7 @@ public class BulletLight : BulletController
     // chuyển speed thành tốc độ gây sát thương
     protected override void OnEnable()
     {
+        base.OnEnable();
         bulletTypes = BulletTypes.Light;
         line =  GetComponentInChildren<LineRenderer>();
         Level = 0;

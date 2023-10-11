@@ -21,11 +21,10 @@ public class GameController : MonoBehaviour
     TextMeshProUGUI textWave;
     public GameStates gameState;
     public WaveManager waveManager;
-    public GameObject winPanel;
-    public GameObject losePanel;
     public GameObject canvasMenu;
     public GameObject canvasPlaying;
     public LevelManager levelManager;
+    public SummaryController summary;
     int score = 0;
 
     private void Awake()
@@ -79,7 +78,16 @@ public class GameController : MonoBehaviour
         }
         Observer.Instance.Notify(TOPICNAME.PAUSE, this);
     }
-    public void WinPanel()
+    public void Stats()
+    {
+        summary.circle.text = WaveManager.totalDamageCircle.ToString();
+        summary.normal.text = WaveManager.totalDamageNormal.ToString();
+        summary.fire.text = WaveManager.totalDamageFire.ToString();
+        summary.plants.text = WaveManager.totalDamagePlants.ToString();
+        summary.lightText.text = WaveManager.totalDamageLight.ToString();
+        summary.dark.text = WaveManager.totalDamageDark.ToString();
+    }
+    public void YouWin()
     {
         levelManager.LevelCurrent++;
         levelManager.DisPlayLevelCurrent();
@@ -87,18 +95,23 @@ public class GameController : MonoBehaviour
         
         gameState = GameStates.Pause;
         Observer.Instance.Notify(TOPICNAME.PAUSE, this);
-        CreateGameController.Instance.winPanel.SetActive(true);
+
+        summary.title.text = "YouWin";
+        Stats();
+        summary.gameObject.SetActive(true);
     }
-    public void LosePanel()
+    public void YouLose()
     {
         gameState = GameStates.Pause;
         Observer.Instance.Notify(TOPICNAME.PAUSE, this);
-        CreateGameController.Instance.losePanel.SetActive(true);
+        summary.title.text = "YouLose";
+        Stats();
+        summary.gameObject.SetActive(true);
     }
     public void BackToMenu()
     {
-        CreateGameController.Instance.winPanel.SetActive(false);
-        CreateGameController.Instance.losePanel.SetActive(false);
+        CreateGameController.Instance.summary.gameObject.SetActive(false);
+        CreateGameController.Instance.summary.gameObject.SetActive(false);
         LoadLevelAsync(0);
     }
     public bool IsPause()

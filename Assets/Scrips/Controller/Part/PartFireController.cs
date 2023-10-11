@@ -37,6 +37,7 @@ public class PartFireController : PartController
             bullet.Damage = Damage * DamageMultiplier;
             bullet.target = target;
             bullet.Level = Level;
+            bullet.parent = gameObject;
             bullet.SetUp();
             lastShootTime = Time.time + 1 / Asdp;
         }

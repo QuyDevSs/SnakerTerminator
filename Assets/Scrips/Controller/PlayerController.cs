@@ -78,7 +78,7 @@ public class PlayerController : EntityController
     }
     protected override void OnDie()
     {
-        CreateGameController.Instance.LosePanel();
+        CreateGameController.Instance.YouLose();
     }
     void Update()
     {

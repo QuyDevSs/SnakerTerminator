@@ -16,6 +16,7 @@ public interface IHit
 //}
 public class BulletController : MoveController
 {
+    public GameObject parent;
     public GameObject target;
     public float lifeTime;
     public BulletTypes bulletTypes;

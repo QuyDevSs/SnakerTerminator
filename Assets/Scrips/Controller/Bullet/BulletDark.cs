@@ -34,7 +34,7 @@ public class BulletDark : BulletController
             return;
         }
 
-        transform.position = target.transform.position;
+        transform.position = parent.transform.position;
         float angle = speed * 360f * Time.deltaTime;
         transform.Rotate(Vector3.forward, angle);
         lifeTime -= angle;

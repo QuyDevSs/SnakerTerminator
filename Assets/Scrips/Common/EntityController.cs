@@ -45,6 +45,29 @@ public abstract class EntityController : MoveController, IHit
         HitDamageController hitDamage = Create.Instance.CreateHitDamage(transform.position + Vector3.up * 0.5f);
         hitDamage.textMesh.text = ((int)-_damage).ToString();
 
+        switch (bullet.bulletTypes)
+        {
+            case BulletTypes.Normal:
+                WaveManager.totalDamageNormal += _damage;
+                break;
+            case BulletTypes.Light:
+                WaveManager.totalDamageLight += _damage;
+                break;
+            case BulletTypes.Fire:
+                WaveManager.totalDamageFire += _damage;
+                break;
+            case BulletTypes.Plants:
+                WaveManager.totalDamagePlants+= _damage;
+                break;
+            case BulletTypes.Dark:
+                WaveManager.totalDamageDark += _damage;
+                break;
+            case BulletTypes.Circle:
+                WaveManager.totalDamageCircle += _damage;
+                break;
+        }
+
+
         if (_damage < 0)
         {
             hitDamage.textMesh.color = new Color32(0, 255, 0, 255);

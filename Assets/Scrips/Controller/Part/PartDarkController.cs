@@ -46,8 +46,9 @@ public class PartDarkController : PartController
         bullet.Damage = Damage * DamageMultiplier;
         bullet.speed = Asdp;
         //bullet.radius = Vector3.Distance(Vector3.zero, tranShoot.localPosition);
-        bullet.target = gameObject;
+        //bullet.target = gameObject;
         bullet.Level = Level;
+        bullet.parent = gameObject;
         bullet.SetUp();
     }
     public override void Upgrade(int nextLevel)

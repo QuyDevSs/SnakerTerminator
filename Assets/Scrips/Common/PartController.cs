@@ -10,7 +10,7 @@ public class PartController : MonoBehaviour
     public Transform tranShoot;
     public Transform body;
     [HideInInspector]
-    public BodyTypes bodyTypes = BodyTypes.Normal;
+    public BodyTypes bodyTypes = BodyTypes.Tail;
     protected float lastShootTime;
     public int Level { get; set; }
     public float DamageMultiplier { get; set; }
