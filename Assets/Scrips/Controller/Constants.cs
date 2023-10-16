@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Constants : MonoBehaviour
+﻿
+public class Constants
 {
+    public const string LEVEL_UNLOCK = "LevelUnlock";
     public const string LEVEL_CURRENT = "LevelCurrent";
+
     #region Body
     // vòng tròn lửa
     public const float CIRCLE_DAMAGE_MULTIPLIER = 10f;

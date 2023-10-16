@@ -98,7 +98,7 @@ public class EnemyController : EntityController
     {
         return DataManager.Instance.enemyVO.GetEntityInfo(level);
     }
-    public override void OnHit(float damage, BulletController bullet)
+    public override void OnHit(int damage, BulletController bullet)
     {
         base.OnHit(damage, bullet);
 

@@ -34,7 +34,7 @@ public class GunTurretController : PartController
         base.Shoot();
         RotateGun(target.transform.position - transform.position);
         BulletController bullet = Create.Instance.CreateBulletNormal(tranShoot);
-        bullet.Damage = Damage * Constants.NORMAL_BODY_DAMAGE_MULTIPLIER;
+        bullet.Damage = (int)(Damage * Constants.NORMAL_BODY_DAMAGE_MULTIPLIER);
     }
     public void Move()
     {

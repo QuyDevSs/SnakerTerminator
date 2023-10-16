@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -110,5 +110,43 @@ static public class Utils
             listsubEffectInfo.Add(subEffectInfo);
         }
         return listsubEffectInfo.ToArray();
+    }
+    public static float FindMaxNumber(float[] numbers)
+    {
+        if (numbers.Length == 0)
+        {
+            throw new System.Exception("Mảng rỗng, không có số nào để so sánh.");
+        }
+
+        float maxFloat = numbers[0]; // Gán số đầu tiên là số lớn nhất ban đầu
+
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] > maxFloat)
+            {
+                maxFloat = numbers[i]; // Cập nhật số lớn nhất nếu tìm thấy số lớn hơn
+            }
+        }
+
+        return maxFloat;
+    }
+    public static int FindMaxNumber(int[] numbers)
+    {
+        if (numbers.Length == 0)
+        {
+            throw new System.Exception("Mảng rỗng, không có số nào để so sánh.");
+        }
+
+        int maxInt = numbers[0]; // Gán số đầu tiên là số lớn nhất ban đầu
+
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] > maxInt)
+            {
+                maxInt = numbers[i]; // Cập nhật số lớn nhất nếu tìm thấy số lớn hơn
+            }
+        }
+
+        return maxInt;
     }
 }

@@ -7,7 +7,7 @@ using System;
 
 public interface IHit
 {
-    void OnHit(float damage, BulletController bullet);
+    void OnHit(int damage, BulletController bullet);
 }
 //public class Effect
 //{
@@ -22,7 +22,7 @@ public class BulletController : MoveController
     public BulletTypes bulletTypes;
     protected bool isPause;
     public int Level { get; set; }
-    public float Damage { get; set; }
+    public int Damage { get; set; }
     protected virtual void OnEnable()
     {
         Observer.Instance.AddObserver(TOPICNAME.PAUSE, PauseHandle);

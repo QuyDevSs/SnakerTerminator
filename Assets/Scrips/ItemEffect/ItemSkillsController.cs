@@ -8,7 +8,7 @@ public class ItemSkillsController : MonoBehaviour
     SelectSkillsController selectSkills;
     private void OnEnable()
     {
-        selectSkills = CreateButtonManager.Instance.selectSkills;
+        selectSkills = CreateGameController.Instance.selectSkills;
     }
     public void Active()
     {

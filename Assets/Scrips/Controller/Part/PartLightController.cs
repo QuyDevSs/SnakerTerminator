@@ -30,7 +30,7 @@ public class PartLightController : PartController
     }
     public override void Shoot()
     {
-        if (isShoot)
+        if (isShoot && lastShootTime <= Time.time)
         {
             target = TargetController.GetTarget(filterTarget);
             if (target == null)
@@ -39,9 +39,9 @@ public class PartLightController : PartController
             }
             base.Shoot();
             isShoot = false;
+            lastShootTime = Time.time + 1 / Asdp;
             BulletLight bullet = (BulletLight)Create.Instance.CreateBulletLight();
-            bullet.Damage = Damage * Constants.ELECTRIC_BODY_DAMAGE_MULTIPLIER;
-            bullet.speed = Asdp;
+            bullet.Damage = (int)(Damage * DamageMultiplier);
             bullet.target = target;
             bullet.partLight = this;
             bullet.Level = Level;

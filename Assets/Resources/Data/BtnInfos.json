@@ -1,102 +1,57 @@
 {
     "data": [{
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/Light",
-            "text": "Light",
-            "function": "PushLightBody",
-            "detail": "Add a light body"
-        }
+        "part": "Images/Buttons/Light",
+        "text": "Light",
+        "function": "AddLightBody",
+        "detail": "Add a light body"
     },
     {
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/Plants",
-            "text": "Plants",
-            "function": "PushPlantsBody",
-            "detail": "Add a plants body"
-        }
+        "part": "Images/Buttons/Plants",
+        "text": "Plants",
+        "function": "AddPlantsBody",
+        "detail": "Add a plants body"
     },
     {
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/Fire",
-            "text": "Fire",
-            "function": "PushFireBody",
-            "detail": "Add a fire body"
-        }
+        "part": "Images/Buttons/Fire",
+        "text": "Fire",
+        "function": "AddFireBody",
+        "detail": "Add a fire body"
     },
     {
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/Dark",
-            "text": "Dark",
-            "function": "PushDarkBody",
-            "detail": "Add a dark body"
-        }
+        "part": "Images/Buttons/Dark",
+        "text": "Dark",
+        "function": "AddDarkBody",
+        "detail": "Add a dark body"
     },
     {
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/Normal",
-            "text": "Normal",
-            "function": "PushNormalBody",
-            "detail": "Add a normal body"
-        }
+        "part": "Images/Buttons/Normal",
+        "text": "Normal",
+        "function": "AddNormalBody",
+        "detail": "Add a normal body"
     },
     {
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/UpgradeFire",
-            "text": "Upgrade Fire",
-            "function": "UpgradeFireBody",
-            "detail": "Fire body upgrade: Bullets bounce more times, upon enemy collision, they will spawn additional bullets"
-        }
+        "part": "Images/Buttons/UpgradeFire",
+        "text": "Upgrade Fire",
+        "function": "UpgradeFireBody",
+        "detail": "Fire body upgrade: Bullets bounce more times, upon enemy collision, they will spawn additional bullets"
     },
     {
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/UpgradePlants",
-            "text": "Upgrade Plants",
-            "function": "UpgradePlantsBody",
-            "detail": "Plants body Upgrade: More bullets, capable of piercing through enemies, bounce upon screen collision"
-        }
+        "part": "Images/Buttons/UpgradePlants",
+        "text": "Upgrade Plants",
+        "function": "UpgradePlantsBody",
+        "detail": "Plants body Upgrade: More bullets, capable of piercing through enemies, bounce upon screen collision"
     },
     {
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/UpgradeLight",
-            "text": "Upgrade Light",
-            "function": "UpgradeLightBody",
-            "detail": "Light body Upgrade: Dealing damage to the same enemy will gradually increase the inflicted damage"
-        }
+        "part": "Images/Buttons/UpgradeLight",
+        "text": "Upgrade Light",
+        "function": "UpgradeLightBody",
+        "detail": "Light body Upgrade: Dealing damage to the same enemy will gradually increase the inflicted damage"
     },
     {
-        "assemblyName": "Assembly-CSharp",
-        "type": "PlayerController",
-        "typeInfo": "ButtonInfo",
-        "data": {
-            "part": "Images/Buttons/UpgradeDark",
-            "text": "Upgrade Dark",
-            "function": "UpgradeDarkBody",
-            "detail": "Light body Upgrade: Add more shadowy swords, longer in length"
-        }
+        "part": "Images/Buttons/UpgradeDark",
+        "text": "Upgrade Dark",
+        "function": "UpgradeDarkBody",
+        "detail": "Light body Upgrade: Add more shadowy swords, longer in length"
     }
 ]
 }

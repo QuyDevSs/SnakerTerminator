@@ -6,6 +6,22 @@
     {
         "lv": 2,
         "part": "Images/Levels/Level2"
+    },
+    {
+        "lv": 3,
+        "part": "Images/Levels/Level3"
+    },
+    {
+        "lv": 4,
+        "part": "Images/Levels/Level4"
+    },
+    {
+        "lv": 5,
+        "part": "Images/Levels/Level5"
+    },
+    {
+        "lv": 6,
+        "part": "Images/Levels/Level6"
     }
 ]
 }

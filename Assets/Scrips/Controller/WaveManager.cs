@@ -48,7 +48,7 @@ public class WaveManager : MonoBehaviour
     private float lastCompetedWaveTime;
     private List<EnemyController> enemies = new List<EnemyController>();
     public int score;
-    public static float totalDamageFire, totalDamagePlants, totalDamageLight, totalDamageDark, totalDamageNormal, totalDamageCircle;
+    public static int[] totalDamages;
     void Start()
     {
         
@@ -63,13 +63,9 @@ public class WaveManager : MonoBehaviour
         completeHandle = false;
         CreateGameController.Instance.DisplayWave(currentWave + 1);
 
-        totalDamageFire = 0;
-        totalDamagePlants = 0;
-        totalDamageLight = 0;
-        totalDamageDark = 0;
-        totalDamageNormal = 0;
-        totalDamageCircle = 0;
-
+        totalDamages = new int[6];
+        score = 0;
+        CreateGameController.Instance.UpdateScore(score);
         Observer.Instance.AddObserver(TOPICNAME.PAUSE, PauseHandle);
         Observer.Instance.AddObserver(TOPICNAME.ENEMY_DIE, OnEnemyDie);
     }
@@ -172,5 +168,7 @@ public class WaveManager : MonoBehaviour
     {
         EnemyController enemy = (EnemyController)data;
         enemies.Remove(enemy);
+        score++;
+        CreateGameController.Instance.UpdateScore(score);
     }
 }

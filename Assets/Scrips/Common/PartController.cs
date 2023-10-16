@@ -14,7 +14,7 @@ public class PartController : MonoBehaviour
     protected float lastShootTime;
     public int Level { get; set; }
     public float DamageMultiplier { get; set; }
-    public float Damage { get; set; }
+    public int Damage { get; set; }
     public float Asdp { get; set; }
     protected void Start()
     {

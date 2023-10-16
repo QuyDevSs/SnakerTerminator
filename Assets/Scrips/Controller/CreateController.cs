@@ -10,7 +10,6 @@ public class CreateController : MonoBehaviour
     public HitDamageController prefabHitDamage;
     public ItemSkillsController prefabItemSkills;
     public PartController prefabBodyPartNormal, prefabBodyPartFire, prefabBodyPartIce, prefabBodyPartPlanes, prefabBodyPartLight, prefabBodyPartDark, prefabTailPart, prefabGunTurret;
-
     public ExplosionController CreateExplosion(Vector2 pos)
     {
         ExplosionController explosion = PoolingObject.createPooling<ExplosionController>(prefabExplosion);

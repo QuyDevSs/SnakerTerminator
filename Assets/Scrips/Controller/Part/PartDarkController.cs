@@ -43,7 +43,7 @@ public class PartDarkController : PartController
     {
         BulletDark bullet = (BulletDark)Create.Instance.CreateBulletDark(tranShoot.position + offset, tranShoot.rotation);
         bullet.transform.Rotate(transform.forward, angle);
-        bullet.Damage = Damage * DamageMultiplier;
+        bullet.Damage = (int)(Damage * DamageMultiplier);
         bullet.speed = Asdp;
         //bullet.radius = Vector3.Distance(Vector3.zero, tranShoot.localPosition);
         //bullet.target = gameObject;

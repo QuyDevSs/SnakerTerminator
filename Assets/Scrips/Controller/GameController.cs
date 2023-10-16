@@ -21,11 +21,60 @@ public class GameController : MonoBehaviour
     TextMeshProUGUI textWave;
     public GameStates gameState;
     public WaveManager waveManager;
-    public GameObject canvasMenu;
     public GameObject canvasPlaying;
-    public LevelManager levelManager;
+    public JoyStickController joyStick;
+    public SelectSkillsController selectSkills;
     public SummaryController summary;
-    int score = 0;
+    public StatsController statsController;
+
+    int levelUnlock;
+    int levelCurrent;
+    public const int MAX_LEVEL = 5;
+
+    public int LevelUnlock
+    {
+        set
+        {
+            if (value < 0)
+            {
+                levelUnlock = 0;
+            }
+            else if (value > MAX_LEVEL)
+            {
+                levelUnlock = MAX_LEVEL - 1;
+            }
+            else
+            {
+                levelUnlock = value;
+            }
+        }
+        get
+        {
+            return levelUnlock;
+        }
+    }
+    public int LevelCurrent
+    {
+        set
+        {
+            if (value < 0)
+            {
+                levelCurrent = 0;
+            }
+            else if (value > levelUnlock)
+            {
+                levelCurrent = levelUnlock;
+            }
+            else
+            {
+                levelCurrent = value;
+            }
+        }
+        get
+        {
+            return levelCurrent;
+        }
+    }
 
     private void Awake()
     {
@@ -35,31 +84,23 @@ public class GameController : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             DataManager.Instance.LoadData();
         }
-        else
-        {
-            Destroy(gameObject);
-            //DestroyImmediate(gameObject);
-        }
     }
     void Start()
     {
-        gameState = GameStates.Playing;
-        Observer.Instance.AddObserver(TOPICNAME.ENEMY_DIE, OnEnemyDie);
-        score = 0;
+        gameState = GameStates.Menu;
+        //PlayerPrefs.SetInt(Constants.LEVEL_UNLOCK, 0);
+        LevelUnlock = PlayerPrefs.GetInt(Constants.LEVEL_UNLOCK, 0);
+        LevelCurrent = LevelUnlock;
+        LoadLevelAsync(0);
         //Sound.Instance.PlayMusic("BackgroundMusic");
-    }
-    private void OnDestroy()
-    {
-        Observer.Instance.RemoveObserver(TOPICNAME.ENEMY_DIE, OnEnemyDie);
     }
     void Update()
     {
         
     }
-    void OnEnemyDie(object data)
+    public void UpdateScore(int _score)
     {
-        score++;
-        textScore.text = "Score: " + score.ToString();
+        textScore.text = "Score: " + _score.ToString();
     }
     public void DisplayWave(int wave)
     {
@@ -78,35 +119,22 @@ public class GameController : MonoBehaviour
         }
         Observer.Instance.Notify(TOPICNAME.PAUSE, this);
     }
-    public void Stats()
-    {
-        summary.circle.text = WaveManager.totalDamageCircle.ToString();
-        summary.normal.text = WaveManager.totalDamageNormal.ToString();
-        summary.fire.text = WaveManager.totalDamageFire.ToString();
-        summary.plants.text = WaveManager.totalDamagePlants.ToString();
-        summary.lightText.text = WaveManager.totalDamageLight.ToString();
-        summary.dark.text = WaveManager.totalDamageDark.ToString();
-    }
     public void YouWin()
     {
-        levelManager.LevelCurrent++;
-        levelManager.DisPlayLevelCurrent();
-        PlayerPrefs.SetInt(Constants.LEVEL_CURRENT, levelManager.LevelCurrent);
-        
-        gameState = GameStates.Pause;
-        Observer.Instance.Notify(TOPICNAME.PAUSE, this);
+        Pause();
+        UnlockNextLevel();
 
         summary.title.text = "YouWin";
-        Stats();
         summary.gameObject.SetActive(true);
+        statsController.UpdateStats(WaveManager.totalDamages);
     }
     public void YouLose()
     {
-        gameState = GameStates.Pause;
-        Observer.Instance.Notify(TOPICNAME.PAUSE, this);
+        Pause();
+
         summary.title.text = "YouLose";
-        Stats();
         summary.gameObject.SetActive(true);
+        statsController.UpdateStats(WaveManager.totalDamages);
     }
     public void BackToMenu()
     {
@@ -122,18 +150,28 @@ public class GameController : MonoBehaviour
     {
         if (level == 0)
         {
-            canvasMenu.SetActive(true);
             canvasPlaying.SetActive(false);
         }
         else
         {
-            canvasMenu.SetActive(false);
             canvasPlaying.SetActive(true);
         }
-        score = 0;
-        textScore.text = "Score: " + score.ToString();
         PoolingObject.ResetStaticVariable();
+        level++;
         AsyncOperation async = SceneManager.LoadSceneAsync(level);
+    }
+    public void LoadLevelAsync()
+    {
+        LoadLevelAsync(LevelCurrent + 1);
+    }
+    public void UnlockNextLevel()
+    {
+        if (LevelCurrent == LevelUnlock)
+        {
+            LevelUnlock++;
+            LevelCurrent++;
+            PlayerPrefs.SetInt(Constants.LEVEL_UNLOCK, LevelUnlock);
+        }
     }
 }
 public class CreateGameController : SingletonMonoBehaviour<GameController>

@@ -49,7 +49,7 @@ public class PartPlantsController : PartController
     void CreateBulletPlants(Vector3 offset)
     {
         BulletController bullet = Create.Instance.CreateBulletPlants(tranShoot.position + offset, tranShoot.rotation);
-        bullet.Damage = Damage * DamageMultiplier;
+        bullet.Damage = (int)(Damage * DamageMultiplier);
         bullet.Level = Level;
         bullet.parent = gameObject;
         bullet.SetUp();

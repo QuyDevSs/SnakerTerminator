@@ -17,6 +17,7 @@ public class BulletLight : BulletController
         line =  GetComponentInChildren<LineRenderer>();
         Level = 0;
         damageFactor = 0;
+        lastHitTime = Time.time + 0.1f;
     }
     private void Update()
     {
@@ -28,6 +29,7 @@ public class BulletLight : BulletController
         line.SetPosition(1, target.transform.position);
         if (Vector3.Distance(partLight.transform.position, target.transform.position) > range || target == null || !target.activeSelf)
         {
+            //Invoke("EndBullet", 0.5f
             EndBullet();
             partLight.isShoot = true;
         }
@@ -36,9 +38,9 @@ public class BulletLight : BulletController
             if (lastHitTime <= Time.time)
             {
                 IHit iHit = target.GetComponentInParent<IHit>();
-                Damage *= (1 + damageFactor);
+                Damage += (int)(damageFactor * Damage);
                 iHit.OnHit(Damage, this);
-                lastHitTime = Time.time + 1 / speed;
+                lastHitTime = Time.time + 1f;
             }
         }
     }

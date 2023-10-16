@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class EntityInfo
 {
-    public float damage;
+    public int damage;
     public float hp;
     public float asdp;
 }
@@ -24,7 +24,7 @@ public abstract class EntityController : MoveController, IHit
     public HPController hpController;
     public LevelController levelController;
     //public TextMeshPro hitDamage;
-    public float Damage { get; set; }
+    public int Damage { get; set; }
     public float Asdp { get; set; }
     protected abstract void OnDie();
     protected virtual void Awake()
@@ -38,7 +38,7 @@ public abstract class EntityController : MoveController, IHit
     {
         Observer.Instance.RemoveObserver(TOPICNAME.PAUSE, PauseHandle);
     }
-    public virtual void OnHit(float _damage, BulletController bullet)
+    public virtual void OnHit(int _damage, BulletController bullet)
     {
         hpController.TakeDamage(_damage);
 
@@ -47,23 +47,23 @@ public abstract class EntityController : MoveController, IHit
 
         switch (bullet.bulletTypes)
         {
-            case BulletTypes.Normal:
-                WaveManager.totalDamageNormal += _damage;
+            case BulletTypes.Circle:
+                WaveManager.totalDamages[0] += _damage;
                 break;
-            case BulletTypes.Light:
-                WaveManager.totalDamageLight += _damage;
+            case BulletTypes.Normal:
+                WaveManager.totalDamages[1] += _damage;
                 break;
             case BulletTypes.Fire:
-                WaveManager.totalDamageFire += _damage;
+                WaveManager.totalDamages[2] += _damage;
                 break;
             case BulletTypes.Plants:
-                WaveManager.totalDamagePlants+= _damage;
+                WaveManager.totalDamages[3] += _damage;
+                break;
+            case BulletTypes.Light:
+                WaveManager.totalDamages[4] += _damage;
                 break;
             case BulletTypes.Dark:
-                WaveManager.totalDamageDark += _damage;
-                break;
-            case BulletTypes.Circle:
-                WaveManager.totalDamageCircle += _damage;
+                WaveManager.totalDamages[5] += _damage;
                 break;
         }
 

@@ -39,7 +39,7 @@ public class PlayerController : EntityController
         BodyParts = new List<PartController>();
         snakePoints = new List<SnakePoint>();
         filterTarget = GetComponent<FilterTargetController>();
-        joyStick = CreateButtonManager.Instance.joyStick;
+        joyStick = CreateGameController.Instance.joyStick;
     }
     private void Start()
     {
@@ -73,7 +73,7 @@ public class PlayerController : EntityController
         base.OnLevelUp(level);
         if (level > 1)
         {
-            PushNormalBody();
+            AddNormalBody();
         }
     }
     protected override void OnDie()
@@ -111,7 +111,7 @@ public class PlayerController : EntityController
             }
             Vector2 center = CenterPolygon(points);
             BulletController bullet = Create.Instance.CreateBulletCircle(center);
-            bullet.Damage = Damage * Constants.CIRCLE_DAMAGE_MULTIPLIER;
+            bullet.Damage = (int)(Damage * Constants.CIRCLE_DAMAGE_MULTIPLIER);
             for (int i = 0; i < points.Length; i++)
             {
                 points[i] -= center;
@@ -239,7 +239,7 @@ public class PlayerController : EntityController
     void ShootCircle(Vector2 pos)
     {
         BulletController bullet = Create.Instance.CreateBulletCircle(pos);
-        bullet.Damage = Damage * Constants.CIRCLE_DAMAGE_MULTIPLIER;
+        bullet.Damage = (int)(Damage * Constants.CIRCLE_DAMAGE_MULTIPLIER);
     }
     void Shoot()
     {
@@ -427,7 +427,7 @@ public class PlayerController : EntityController
             }
         }
     }
-    public void PushNormalBody()
+    public void AddNormalBody()
     {
         int randomIndex = UnityEngine.Random.Range(1, BodyParts.Count - 1);
         PartController bodyPartIndex = BodyParts[randomIndex];
@@ -436,7 +436,7 @@ public class PlayerController : EntityController
         bodyPart.Asdp = Asdp;
         BodyParts.Insert(randomIndex, bodyPart);
     }
-    public void PushFireBody()
+    public void AddFireBody()
     {
         int randomIndex = UnityEngine.Random.Range(1, BodyParts.Count - 1);
         PartController bodyPartIndex = BodyParts[randomIndex];
@@ -446,7 +446,7 @@ public class PlayerController : EntityController
         bodyPart.Upgrade(LevelFireBody);
         BodyParts.Insert(randomIndex, bodyPart);
     }
-    public void PushPlantsBody()
+    public void AddPlantsBody()
     {
         int randomIndex = UnityEngine.Random.Range(1, BodyParts.Count - 1);
         PartController bodyPartIndex = BodyParts[randomIndex];
@@ -456,7 +456,7 @@ public class PlayerController : EntityController
         bodyPart.Upgrade(LevelPlantsBody);
         BodyParts.Insert(randomIndex, bodyPart);
     }
-    public void PushLightBody()
+    public void AddLightBody()
     {
         int randomIndex = UnityEngine.Random.Range(1, BodyParts.Count - 1);
         PartController bodyPartIndex = BodyParts[randomIndex];
@@ -466,7 +466,7 @@ public class PlayerController : EntityController
         bodyPart.Upgrade(LevelLightBody);
         BodyParts.Insert(randomIndex, bodyPart);
     }
-    public void PushDarkBody()
+    public void AddDarkBody()
     {
         int randomIndex = UnityEngine.Random.Range(1, BodyParts.Count - 1);
         PartController bodyPartIndex = BodyParts[randomIndex];

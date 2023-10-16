@@ -1,0 +1,21 @@
+{
+    "data": [{
+        "type": "Fire",
+        "data": {
+            "part": "Images/Buttons/Fire",
+            "text": "Fire",
+            "function": "AddFireBody",
+            "detail": "Add a fire body"
+        }
+    },
+    {
+        "type": "Fire",
+        "data": {
+            "part": "Images/Buttons/Fire",
+            "text": "Fire",
+            "function": "AddFireBody",
+            "detail": "Add a fire body"
+        }
+    }
+]
+}

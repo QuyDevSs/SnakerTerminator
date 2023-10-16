@@ -34,7 +34,7 @@ public class PartFireController : PartController
             //Sound.Instance.PlaySound("laser_shot");
             RotateGun(target.transform.position - transform.position);
             BulletController bullet = Create.Instance.CreateBulletFire(tranShoot.position, tranShoot.rotation);
-            bullet.Damage = Damage * DamageMultiplier;
+            bullet.Damage = (int)(Damage * DamageMultiplier);
             bullet.target = target;
             bullet.Level = Level;
             bullet.parent = gameObject;
